@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> LVT</title>
+	<script type="text/javascript" src="/home/mushtaque/junk/shueb/library.js"></script>
+</head>
+<body>
+  <button type="button" onclick="fetchFreshData()">Refresh</button>
+
+<script type="text/javascript">
+
+var markers = new Array();
+var currTime = 1;
+
+  function fetchFreshData() {
+    var url = 'http://localhost:4004/pop?time=' + currTime;
+    getJSON(url, getMethodSuccessHandler, errorHandler);
+    currTime ++;
+  } 
+
+</script>
+</body>
+</html>

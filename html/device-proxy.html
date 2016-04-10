@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> LVT</title>
+	<script type="text/javascript" src="/home/mushtaque/junk/shueb/library.js"></script>
+</head>
+<body>
+<form id="form1">
+	 Enter VehicleID: <input type="text" name="VehicliID"/> <br/>
+	 Enter Time     : <input type="text" name="TimeInstant"/> <br/>
+	 Enter Latitude : <input type="text" name="Latitude"/> <br/>
+	 Enter Longitude: <input type="text" name="Longitude"/> <br/>
+</form>
+
+  <button type="button" onclick="pushData()"> Push Data to Server </button>
+<script type="text/javascript">
+
+  function pushData() {
+    var url  = 'http://localhost:4004/push?'
+    var timeInstant = document.forms['form1']['TimeInstant'].value;
+    var lat  = document.forms['form1']['Latitude'].value;
+    var lng  = document.forms['form1']['Longitude'].value;
+     
+    url += 'time='+timeInstant+'&latitude='+lat+'&longitude='+lng;
+    console.log('generated url: ' + url);
+    getJSON(url, getMethodSuccessHandler, errorHandler);
+  } 
+
+</script>
+</body>
+</html>
